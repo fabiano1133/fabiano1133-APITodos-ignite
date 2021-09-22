@@ -8,7 +8,7 @@ function userNameVerifyExist(request, response, next) {
   const { username } = request.headers;
   const userNameExist = users.find((uname) => uname.username === username);
   if(!userNameExist) {
-    return response.status(404).json({error: "Usuari nao cadastrado"});
+    return response.status(404).json({error: "Usuario nao cadastrado"});
   }
   request.userNameExist = userNameExist;
   return next()
