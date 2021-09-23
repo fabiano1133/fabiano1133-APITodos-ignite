@@ -1,8 +1,13 @@
 const express = require('express');
+const cors = require('cors');
+
 const { v4:uuidv4 } = require('uuid');
+
 const app = express();
 
+app.use(cors());
 app.use(express.json());
+
 
 function userNameVerifyExist(request, response, next) {
   const { username } = request.headers;
@@ -86,5 +91,5 @@ app.delete("/deletetodos/:id", userNameVerifyExist, (request, response) => {
     return response.status(204).send()
   });
 
-app.listen(3000)
+module.exports = app
 
